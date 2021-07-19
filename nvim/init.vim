@@ -32,6 +32,7 @@ set number " for showing line number
 " for showing bottom cmd
 set showcmd
 
+
 let mapleader = "," " set leader key to COMMA
 set laststatus=2 " for bottom line to show up
 
@@ -46,6 +47,7 @@ set laststatus=2 " for bottom line to show up
 
 source $XDG_CONFIG_HOME/nvim/vim_plug.vim
 nnoremap <silent> <leader>so :source $MYVIMRC<CR>
+nnoremap <silent> <leader><leader>v <C-v>
 
 """"""""""""""""""""
 "" End Vim Source ""
@@ -90,8 +92,30 @@ let g:airline#extensions#tabline#buffer_nr_show=1
 "" Start Lua LSPConfig ""
 """""""""""""""""""""""""
 
-lua require'lspconfig'.clangd.setup{}
-lua require'lspconfig'.pyright.setup{}
+set completeopt=menuone,noinsert,noselect
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
+lua << EOF
+local custom_attach = function(client)
+    require'completion'.on_attach(client)
+    require'lsp_signature'.on_attach()
+
+    local function buf_set_keymap(...)
+        vim.api.nvim_buf_set_keymap(...)
+    end
+
+    -- options
+    opts = { noremap=true, silent=true }
+
+    -- go to declaration
+    buf_set_keymap(0, 'n', 'gD', '<cmd> lua vim.lsp.buf.declaration()<CR>', opts)
+    -- trigger hover
+    buf_set_keymap(0, 'n', '<leader>i', '<cmd> lua vim.lsp.buf.hover()<CR>', opts)
+end
+
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.pyright.setup{ on_attach=custom_attach }
+EOF
 
 """""""""""""""""""""""""
 "" End Lua LSPConfig ""
@@ -154,7 +178,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " _____________________________________ "
 
 """""""""""""""""""""""""""""""
-"  Start Configuration for nvim-lsp => To have a better virtual text position "
+"  Start Configuration for nvim-lsp virtual text => To have a better virtual text position "
 """""""""""""""""""""""""""""""
 
 luafile $XDG_CONFIG_HOME/nvim/nvim_lsp.lua

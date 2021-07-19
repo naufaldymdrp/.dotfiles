@@ -1,6 +1,7 @@
 call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/completion-nvim'
+    Plug 'ray-x/lsp_signature.nvim'
     Plug 'ziglang/zig.vim'
     Plug 'junegunn/fzf.vim'
     Plug 'morhetz/gruvbox'
