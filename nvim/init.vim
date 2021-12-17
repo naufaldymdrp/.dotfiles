@@ -46,8 +46,11 @@ set laststatus=2 " for bottom line to show up
 """""""""""""""""""""
 
 source $XDG_CONFIG_HOME/nvim/vim_plug.vim
+
+"--------------SHORTCUT-----------------"
 nnoremap <silent> <leader>so :source $MYVIMRC<CR>
 nnoremap <silent> <leader><leader>v <C-v>
+nnoremap <silent> <leader><leader>sb1 :vert sb1
 
 """"""""""""""""""""
 "" End Vim Source ""
@@ -113,9 +116,34 @@ local custom_attach = function(client)
     buf_set_keymap(0, 'n', '<leader>i', '<cmd> lua vim.lsp.buf.hover()<CR>', opts)
 end
 
-require'lspconfig'.clangd.setup{}
+require'lspconfig'.clangd.setup{ on_attach=custom_attach }
 require'lspconfig'.pyright.setup{ on_attach=custom_attach }
+require'lspconfig'.tsserver.setup{ on_attach=custom_attach }
+require'lspconfig'.zls.setup{ on_attach=custom_attach }
+require'lspconfig'.rust_analyzer.setup{
+    on_attach=custom_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            assist = {
+                importGranularity = "module",
+                importPrefix = "by_self",
+            },
+            cargo = {
+                loadOutDirsFromCheck = true
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+}
+
 EOF
+
+" rust-tools.nvim configuration
+" luafile $XDG_CONFIG_HOME/nvim/rust.lua
+
+let g:rustfmt_autosave = 1
 
 """""""""""""""""""""""""
 "" End Lua LSPConfig ""
@@ -141,6 +169,8 @@ nnoremap <silent> <leader><leader>2 :2Ttoggle<CR>
 nnoremap <silent> <leader><leader>3 :3Ttoggle<CR>
 nnoremap <silent> <leader><leader>4 :4Ttoggle<CR>
 
+nnoremap <silent> <leader><leader>5 :vert Tnew<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " End Terminal Configuration 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -152,9 +182,29 @@ nnoremap <silent> <leader><leader>4 :4Ttoggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
+
+nnoremap <leader>fs <cmd>Telescope live_grep<cr>
+nnoremap <leader>fS <cmd>Telescope grep_string<cr>
+
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+nnoremap <leader>fI <cmd>Telescope lsp_workspace_symbols<cr>
+nnoremap <leader>fi <cmd>Telescope lsp_document_symbols<cr>
+
+nnoremap <leader>fr <cmd>Telescope lsp_references<cr>
+
+nnoremap <leader>fG <cmd>Telescope git_commits<cr>
+nnoremap <leader>fg <cmd>Telescope git_bcommits<cr>
+
+" Telescope Configuration
+lua << EOF
+require('telescope').setup{
+    defaults = {
+        initial_mode = "insert"
+    }
+}
+EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " End telescope.nvim Mapping ""

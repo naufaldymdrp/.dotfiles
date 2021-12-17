@@ -11,6 +11,8 @@ call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'tpope/vim-fugitive'
     Plug 'kassio/neoterm'
+    Plug 'simrat39/rust-tools.nvim'
+    " Telescope 
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
