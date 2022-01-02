@@ -14,6 +14,9 @@ require('telescope').setup{
 -- lspconfig and its plugins configuration
 require('configs.lspconfig')
 
+-- lspsaga, for more IDEs feature in NVIM using nvim's lsp
+require('configs.lspsaga')
+
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------

@@ -68,3 +68,11 @@ nnoremap <leader>fG <cmd>Telescope git_commits<cr>
 nnoremap <leader>fg <cmd>Telescope git_bcommits<cr>
 
 " xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+" -----------------------------------------------------
+" ------ LspSaga Keymaps  -----------------------------
+" -----------------------------------------------------
+
+nnoremap <silent>K <CMD>Lspsaga hover_doc<CR>
+
+" -----------------------------------------------------

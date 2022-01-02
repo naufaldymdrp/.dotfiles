@@ -52,6 +52,7 @@ return require('packer').startup(function()
     use { 'hrsh7th/cmp-vsnip' }
     use { 'hrsh7th/vim-vsnip' }
 
+    use { 'glepnir/lspsaga.nvim' }
 
     -- trouble -- for showing LSP Diagonostic Lists in Quickfix List
     use {
