@@ -29,7 +29,7 @@ return require('packer').startup(function()
     -- nvim-ts-autotag -- for auto tag mark-up languages
     use 'windwp/nvim-ts-autotag'
 
-    -- nvim-ts-rainbow -- for showing rainbow on parenthesis 
+    -- nvim-ts-rainbow -- for showing rainbow on parenthesis
     -- or block of code
     use 'p00f/nvim-ts-rainbow'
 
@@ -52,7 +52,10 @@ return require('packer').startup(function()
     use { 'hrsh7th/cmp-vsnip' }
     use { 'hrsh7th/vim-vsnip' }
 
-    use { 'glepnir/lspsaga.nvim' }
+    -- For more LSP Capabilites
+    use 'hrsh7th/cmp-nvim-lsp'
+
+    -- use { 'glepnir/lspsaga.nvim' }
 
     -- trouble -- for showing LSP Diagonostic Lists in Quickfix List
     use {
@@ -68,9 +71,12 @@ return require('packer').startup(function()
         requires = 'nvim-lua/plenary.nvim'
     }
 
+    -- which-key using Lua
+    use 'folke/which-key.nvim'
+
     -- toggleterm for using terminal inside nvim
     -- in an convinient way
-    use {"akinsho/toggleterm.nvim"}
+    use "akinsho/toggleterm.nvim"
 
     ------- Layout Plugins --------------------
 
@@ -81,7 +87,6 @@ return require('packer').startup(function()
         requires = {
             'kyazdani42/nvim-web-devicons', -- optional, for file icon
         },
-        config = function() require'nvim-tree'.setup {} end
     }
 
     -- barbar -- for top buffer file bar with icons
@@ -94,6 +99,8 @@ return require('packer').startup(function()
     use 'tjdevries/colorbuddy.vim'
     use 'tjdevries/gruvbuddy.nvim'
 
+    use 'folke/tokyonight.nvim'
+
     -- lualine status bar
     use {
         'nvim-lualine/lualine.nvim',
@@ -102,6 +109,9 @@ return require('packer').startup(function()
 
     -- colorizer -- for showing color in file
     use 'norcalli/nvim-colorizer.lua'
+
+    -- for indent highlight
+    use "lukas-reineke/indent-blankline.nvim"
 
     -------------------------------------------
 

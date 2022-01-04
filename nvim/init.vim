@@ -18,8 +18,14 @@ set mouse=a
 " termguicolors
 set termguicolors
 
+" colorscheme
+let g:tokyonight_style='night'
+colorscheme tokyonight
+
 " show n-characters line limit
 set colorcolumn=80
+
+set cursorline
 
 " tabspace !!!
 set expandtab
@@ -42,37 +48,8 @@ syntax on
 " plugins configuration -- using Packer
 lua require('plugins')
 
+" keymaps.lua -- for keymaps related plugin
+lua require('keymaps')
+
 " configs.lua -- plugin related configuration
 lua require('configs')
-
-" xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-" -----------------------------------------------------
-" ------ Telescope Keymaps  ---------------------------
-" -----------------------------------------------------
-
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-
-nnoremap <leader>fs <cmd>Telescope live_grep<cr>
-nnoremap <leader>fS <cmd>Telescope grep_string<cr>
-
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-nnoremap <leader>fI <cmd>Telescope lsp_workspace_symbols<cr>
-nnoremap <leader>fi <cmd>Telescope lsp_document_symbols<cr>
-
-nnoremap <leader>fr <cmd>Telescope lsp_references<cr>
-
-nnoremap <leader>fG <cmd>Telescope git_commits<cr>
-nnoremap <leader>fg <cmd>Telescope git_bcommits<cr>
-
-" xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-" -----------------------------------------------------
-" ------ LspSaga Keymaps  -----------------------------
-" -----------------------------------------------------
-
-nnoremap <silent>K <CMD>Lspsaga hover_doc<CR>
-
-" -----------------------------------------------------
