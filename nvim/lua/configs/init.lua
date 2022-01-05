@@ -35,7 +35,7 @@ require'colorizer'.setup()
 
 -- nvim colorscheme -- written in Lua
 -- setup directly here
-require('colorbuddy').colorscheme('gruvbuddy')
+-- require('colorbuddy').colorscheme('gruvbuddy')
 
 -- lualine -- status bar written in Lua
 -- setup directly here

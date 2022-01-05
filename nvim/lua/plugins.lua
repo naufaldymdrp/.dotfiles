@@ -96,8 +96,8 @@ return require('packer').startup(function()
     }
 
     -- nvim colorschemes using tjdevries gruvbuddy (using colorbuddy)
-    use 'tjdevries/colorbuddy.vim'
-    use 'tjdevries/gruvbuddy.nvim'
+    -- use 'tjdevries/colorbuddy.vim'
+    -- use 'tjdevries/gruvbuddy.nvim'
 
     use 'folke/tokyonight.nvim'
 

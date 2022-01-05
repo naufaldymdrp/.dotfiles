@@ -5,10 +5,6 @@
 " set leader key to "," key
 let mapleader=","
 
-" keymap
-inoremap kj <Esc>
-nnoremap <leader>v <C-v>
-
 " set line numbers on
 set number
 
@@ -36,6 +32,9 @@ retab
 set smarttab
 
 set completeopt=menu,menuone,noselect
+
+" set timeout length
+set timeoutlen=200
 
 " enable filetype detection together with plugin and indentation
 filetype plugin indent on

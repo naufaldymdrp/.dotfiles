@@ -1,3 +1,7 @@
+if vim.fn.has("win32") then
+    vim.o.shell = 'C://dev//Git//bin//bash.exe --login'
+end
+
 -- toggleterm plugin
 require("toggleterm").setup{
 -- size can be a number or function which is passed the current terminal
@@ -28,8 +32,8 @@ require("toggleterm").setup{
     -- the 'curved' border is a custom border type
     -- not natively supported but implemented in this plugin.
     border = 'curved',
-    width = 80,
-    height = 30,
+    width = 100,
+    height = 40,
     winblend = 3,
     highlights = {
       border = "Normal",

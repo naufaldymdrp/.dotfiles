@@ -1,6 +1,24 @@
 local keymap = vim.api.nvim_set_keymap
 local options = { noremap = true, silent = false }
 
+-- ------------------------------------------------------
+-- ------ VIM Remaps ------------------------------------
+-- ------------------------------------------------------
+
+-- exits normal mode using kj keymap
+-- inoremap kj <Esc>
+keymap('i', 'kj', '<Esc>', options)
+
+-- exit terminal mode
+-- tnoremap <silent> <ESC> <C-\><C-n>
+keymap('t', '<Esc>', "<C-\\><C-n>", options)
+
+-- map visual block
+-- nnoremap <leader>v <C-v>
+keymap('n', '<leader>v', '<C-v>', options)
+
+-- ------------------------------------------------------
+
 -- -----------------------------------------------------
 -- ------ Telescope Keymaps  ---------------------------
 -- -----------------------------------------------------
@@ -63,7 +81,9 @@ keymap('n', '<leader>fg', '<cmd>Telescope git_bcommits<cr>', options)
 -- ------ Lspconfig Keymaps  -----------------------------
 -- -----------------------------------------------------
 
+keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
 
+keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', options)
 
 -- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 

@@ -11,24 +11,29 @@
 --   capabilities = capabilities
 -- }
 
+
 -- ---------------------------------------------------------------------------
 local lsp_installer = require("nvim-lsp-installer")
 
 local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, "init.lua")
 table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-Library = {}
+local library = {}
 
 local function add(lib)
     for _, p in pairs(vim.fn.expand(lib, false, true)) do
         p = vim.loop.fs_realpath(p)
-        Library[p] = true
+        library[p] = true
     end
 end
 
 -- add runtime libraries
 add("$VIMRUNTIME") -- vim runtime libraries themself
+add("$VIMRUNTIME/lua") -- vim runtime libraries themself
+add("$VIMRUNTIME/lua/vim/lsp") -- vim runtime libraries themself
 add("$XDG_CONFIG_HOME/nvim") -- vim lua plugin script
 -- add vim libraries added by packer
 if vim.fn.has('win32') == 1 then
@@ -44,7 +49,7 @@ end
 --     local function buf_set_keymap(...)
 --         vim.api.nvim_buf_set_keymap(...)
 --     end
--- 
+--
 --     -- set up buffer-local keymaps
 -- end
 
@@ -56,7 +61,7 @@ local server_options = {
     -- sumneko language server
     ['sumneko_lua'] = function(options)
         options.on_new_config = function(config, root)
-            local libs = vim.tbl_deep_extend("force", {}, Library)
+            local libs = vim.tbl_deep_extend("force", {}, library)
             libs[root] = nil
             config.settings.Lua.workspace.library = libs
 
@@ -74,7 +79,7 @@ local server_options = {
                     globals = {'vim', 'use'},
                 },
                 workspace = {
-                    library = Library,
+                    library = library,
                     maxPreload = 2000,
                     preloadFileSize = 50000,
                 },
@@ -86,6 +91,7 @@ local server_options = {
         }
     end,
 }
+
 
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
