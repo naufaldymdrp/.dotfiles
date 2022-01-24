@@ -55,12 +55,21 @@ return require('packer').startup(function()
     -- For more LSP Capabilites
     use 'hrsh7th/cmp-nvim-lsp'
 
+    -- For LSP Linter and Diagnostics using null-lsp
+    use 'jose-elias-alvarez/null-ls.nvim'
+
     -- use { 'glepnir/lspsaga.nvim' }
 
     -- trouble -- for showing LSP Diagonostic Lists in Quickfix List
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
+    }
+
+    -- Git - related Configuration
+    use {
+        "sindrets/diffview.nvim",
+        requires = "nvim-lua/plenary.nvim"
     }
 
     -----------------------------------------

@@ -85,6 +85,10 @@ keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
 
 keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', options)
 
+keymap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', options)
+
+keymap('n', 'F', '<cmd>lua vim.lsp.buf.formatting()<cr>', options)
+
 -- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 -- -----------------------------------------------------
@@ -93,7 +97,7 @@ keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', options)
 
 -- Show LSP Symbols on (cursor) hover
 -- nnoremap <silent>K <CMD>Lspsaga hover_doc<CR>
-keymap('n', '<leader>K', '<cmd>Lspsaga hover_doc<cr>', options)
+-- keymap('n', '<leader>K', '<cmd>Lspsaga hover_doc<cr>', options)
 
 -- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 

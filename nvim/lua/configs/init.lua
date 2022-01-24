@@ -7,10 +7,15 @@ require('configs.toggleterm-config')
 -- lspconfig and its plugins configuration
 require('configs.lsp-config')
 
+-- null-lsp plugin and its configuration
+require('configs.null-ls-config')
+
 -- which-key plugin and its configuration
 require('configs.which-key-config')
 
 -- indent-blankline plugin and its configuration
+-- for showing blank lines with symbols
+-- such as space, tabs, enter, lines, etc
 require('configs.indent-blankline-config')
 
 -- telescope Plugin -- setup directly here
@@ -33,15 +38,13 @@ require('telescope').setup{
 -- setup directly here
 require'colorizer'.setup()
 
+-- lualine -- status bar written in Lua
+-- plugin and its configuration
+require("configs.lualine-config")
+
 -- nvim colorscheme -- written in Lua
 -- setup directly here
 -- require('colorbuddy').colorscheme('gruvbuddy')
-
--- lualine -- status bar written in Lua
--- setup directly here
-require'lualine'.setup {
-    options = { theme = 'tokyonight' }
-}
 
 -- nvim-tree file viewer
 -- setup directly here
