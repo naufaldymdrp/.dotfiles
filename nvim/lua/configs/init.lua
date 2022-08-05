@@ -10,6 +10,9 @@ require('configs.lsp-config')
 -- null-lsp plugin and its configuration
 require('configs.null-ls-config')
 
+-- rust-tools config, for Rust-related development
+require('configs.rust-tools-config')
+
 -- which-key plugin and its configuration
 require('configs.which-key-config')
 

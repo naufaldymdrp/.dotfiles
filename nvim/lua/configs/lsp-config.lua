@@ -90,6 +90,23 @@ local server_options = {
             }
         }
     end,
+    -- rust-analyzer language server
+    ["rust-analyzer"] = {
+        imports = {
+            granularity = {
+                group = "module",
+            },
+            prefix = "self",
+        },
+        cargo = {
+            buildScripts = {
+                enable = true,
+            },
+        },
+        procMacro = {
+            enable = true,
+        },
+    },
 }
 
 
@@ -107,6 +124,7 @@ lsp_installer.on_server_ready(function(server)
     -- if server.name == "tsserver" then
     --     opts.root_dir = function() ... end
     -- end
+
     if server_options[server.name] then
         -- enhance default options with server specific options
         server_options[server.name](opts)

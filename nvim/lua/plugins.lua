@@ -58,6 +58,9 @@ return require('packer').startup(function()
     -- For LSP Linter and Diagnostics using null-lsp
     use 'jose-elias-alvarez/null-ls.nvim'
 
+    -- For Rust-related development, it shows inline hints and more
+    use 'simrat39/rust-tools.nvim'
+
     -- use { 'glepnir/lspsaga.nvim' }
 
     -- trouble -- for showing LSP Diagonostic Lists in Quickfix List
@@ -85,7 +88,7 @@ return require('packer').startup(function()
 
     -- toggleterm for using terminal inside nvim
     -- in an convinient way
-    use "akinsho/toggleterm.nvim"
+    -- use "akinsho/toggleterm.nvim"
 
     ------- Layout Plugins --------------------
 

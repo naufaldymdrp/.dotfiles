@@ -10,6 +10,6 @@ null_lsp.setup({
     sources = {
         formatting.black.with({ extra_args = { "--fast", "--line-length=80" } }),
         diagnostics.flake8.with({ extra_args = { "--max-line-length=80", "--ignore=E501" } }),
-        formatting.rustfmt
+        -- formatting["rust_analyzer"].with({ extra_args = { "--edition=2021" }})
     },
 })
