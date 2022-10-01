@@ -25,7 +25,7 @@ set.termguicolors = true
 -- let g:tokyonight_style='night'
 g.tokyonight_style = "night"
 -- colorscheme tokyonight
-vim.cmd [[ colorscheme tokyonight ]]
+vim.cmd [[ colorscheme tokyonight-night ]]
 
 -- show n-characters line limit
 -- set colorcolumn=80
@@ -65,4 +65,4 @@ require('keymaps')
 
 -- configs.lua -- plugin related configuration
 -- lua require('configs')
-require('configs')
+require('lsp')
