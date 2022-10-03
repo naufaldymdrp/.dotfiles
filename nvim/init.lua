@@ -10,15 +10,15 @@ local set = vim.o -- global options
 g.mapleader = ","
 
 -- set line numbers on
--- set number
+-- Vim: set number
 set.number = true
 
 -- set mouse scroll
---set mouse=a
+-- Vim: set mouse=a
 set.mouse = 'a'
 
 -- termguicolors
--- set termguicolors
+-- Vim: set termguicolors
 set.termguicolors = true
 
 -- colorscheme

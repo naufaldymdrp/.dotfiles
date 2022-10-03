@@ -90,8 +90,6 @@ local packer_startup = require('packer').startup(function()
         end
     }
 
-    -- use { 'glepnir/lspsaga.nvim' }
-
     -- trouble -- for showing LSP Diagonostic Lists in Quickfix List
     use {
         "folke/trouble.nvim",
@@ -115,7 +113,7 @@ local packer_startup = require('packer').startup(function()
     use {
         'folke/which-key.nvim',
         config = function()
-            require('configs.which-key-config') 
+            require('configs.which-key-config')
         end,
     }
 
