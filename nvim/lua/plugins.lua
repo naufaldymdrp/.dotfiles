@@ -10,7 +10,9 @@ local packer_startup = require('packer').startup(function()
     -- nvim treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
-        config = "require('configs.nvim-treesitter-config')",
+        config = function ()
+            require("configs.nvim-treesitter-config")
+        end,
     }
 
     -- nvim-ts-autotag -- for auto tag mark-up languages
@@ -61,7 +63,9 @@ local packer_startup = require('packer').startup(function()
     -- For LSP Linter and Diagnostics using null-lsp
     use {
         'jose-elias-alvarez/null-ls.nvim',
-        config = "require('configs.null-ls-config')",
+        config = function()
+            require("configs.null-ls-config")
+        end
     }
 
     -- For pretty LSP UI (more beautiful than nvim-cmp)
@@ -81,7 +85,9 @@ local packer_startup = require('packer').startup(function()
     -- For Rust-related development, it shows inline hints and more
     use {
         'simrat39/rust-tools.nvim',
-        config = "require('configs.rust-tools-config')",
+        config = function()
+            require('configs.rust-tools-config')
+        end
     }
 
     -- use { 'glepnir/lspsaga.nvim' }
@@ -108,7 +114,9 @@ local packer_startup = require('packer').startup(function()
     -- which-key using Lua
     use {
         'folke/which-key.nvim',
-        config = "require('configs.which-key-config')",
+        config = function()
+            require('configs.which-key-config') 
+        end,
     }
 
     -- Lua
@@ -135,7 +143,15 @@ local packer_startup = require('packer').startup(function()
         requires = {
             'kyazdani42/nvim-web-devicons', -- optional, for file icon
         },
-        config = "require('nvim-tree').setup{}",
+        config = function()
+            local status, nvim_tree = pcall(require, "nvim-tree")
+            if not status then
+                print("nvim-tree.lua plugins is not installed")
+                return
+            end
+
+            nvim_tree.setup({})
+        end,
     }
 
     -- barbar -- for top buffer file bar with icons
@@ -148,25 +164,46 @@ local packer_startup = require('packer').startup(function()
     -- use 'tjdevries/colorbuddy.vim'
     -- use 'tjdevries/gruvbuddy.nvim'
 
-    use 'folke/tokyonight.nvim'
+    use {'folke/tokyonight.nvim',
+        config = function()
+            local tokyo_status, _ = pcall(require, "tokyonight")
+            if not tokyo_status then
+                print("tokyonight.nvim plugin is not installed")
+                return
+            end
+
+            vim.cmd [[ colorscheme tokyonight-night ]]
+        end
+    }
 
     -- lualine status bar
     use {
         'nvim-lualine/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
-        config = "require('configs.lualine-config')",
+        config = function()
+            require("configs.lualine-config")
+        end,
     }
 
     -- colorizer -- for showing color in file
     use {
         "norcalli/nvim-colorizer.lua",
-        config = "require('colorizer').setup({})",
+        config = function()
+            local status, nvim_colorizer = pcall(require, 'colorizer')
+            if not status then
+                print("nvim-colorizer.lua plugin is not installed")
+            end
+
+            nvim_colorizer.setup({})
+        end,
     }
 
     -- for indent highlight
     use {
         "lukas-reineke/indent-blankline.nvim",
-        config = "require('configs.indent-blankline-config')",
+        config = function()
+            require("configs.indent-blankline-config")
+        end
     }
 
     -------------------------------------------

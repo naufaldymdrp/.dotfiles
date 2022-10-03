@@ -22,10 +22,7 @@ set.mouse = 'a'
 set.termguicolors = true
 
 -- colorscheme
--- let g:tokyonight_style='night'
-g.tokyonight_style = "night"
--- colorscheme tokyonight
-vim.cmd [[ colorscheme tokyonight-night ]]
+-- Vim: colorscheme tokyonight
 
 -- show n-characters line limit
 -- set colorcolumn=80
