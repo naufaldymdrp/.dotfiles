@@ -27,8 +27,6 @@ keymap('n', 'K', '<cmd>Lspsaga hover_doc<cr>', options)
 
 keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', options)
 
-keymap('n', 'F', '<cmd>lua vim.lsp.buf.formatting()<cr>', options)
-
 keymap('n', '<leader>.', '<CMD>Lspsaga code_action<CR>', options)
 
 -- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

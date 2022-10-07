@@ -12,6 +12,7 @@ lspconfig.omnisharp.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.svelte.setup({})
 lspconfig.astro.setup({})
+lspconfig.pyright.setup({})
 
 lspconfig.rust_analyzer.setup({
     settings = {

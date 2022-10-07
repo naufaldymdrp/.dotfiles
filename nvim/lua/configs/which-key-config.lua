@@ -20,7 +20,7 @@ local mappings = {
         name = "LSP Controls",
         k = { function() lsp.buf.hover() end, "Hover" },
         K = { "<CMD>Lspsaga hover_doc<CR>", "Lspsaga's Hover Documentation" },
-        f = { function() lsp.buf.formatting() end, "Format current buffer" },
+        f = { function() lsp.buf.format({ async = true }) end, "Format current buffer" },
         d = { "<CMD>Lspsaga show_cursor_diagnostics<CR>", "LSPSaga : Show Cursor Diagnostics" },
         D = { "<CMD>Lspsaga show_line_diagnostics<CR>", "LSPSaga : Show Line Diagnostics" },
         ['gd'] = { function() lsp.buf.definition() end, "Go to Definitions" },

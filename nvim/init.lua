@@ -12,6 +12,7 @@ g.mapleader = ","
 -- set line numbers on
 -- Vim: set number
 set.number = true
+set.relativenumber = true
 
 -- set mouse scroll
 -- Vim: set mouse=a
