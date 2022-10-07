@@ -12,7 +12,12 @@ lspconfig.omnisharp.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.svelte.setup({})
 lspconfig.astro.setup({})
+<<<<<<< Updated upstream
 lspconfig.pyright.setup({})
+=======
+lspconfig.clangd.setup({})
+lspconfig.cmake.setup({})
+>>>>>>> Stashed changes
 
 lspconfig.rust_analyzer.setup({
     settings = {
