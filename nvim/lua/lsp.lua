@@ -15,6 +15,11 @@ lspconfig.astro.setup({})
 lspconfig.pyright.setup({})
 lspconfig.clangd.setup({})
 lspconfig.cmake.setup({})
+lspconfig.denols.setup({
+    autostart = false
+})
+
+
 
 lspconfig.rust_analyzer.setup({
     settings = {
@@ -66,6 +71,7 @@ else
     add("$XDG_DATA_HOME/nvim/site/pack/packer/start/*")
 end
 
+lspconfig.teal_ls.setup({})
 lspconfig.sumneko_lua.setup({
     settings = {
             Lua = {

@@ -34,6 +34,10 @@ local mappings = {
         r = { "<CMD>TroubleToggle lsp_references<CR>", "Trouble Info for LSP References" },
         d = { "<CMD>TroubleToggle lsp_definitions<CR>", "Trouble Info for LSP Definitions" },
     },
+    g = {
+        name = "Gitsigns Controls",
+        b = { "<CMD>Gitsigns blame_line<CR>", "Show current line git blame"},
+    },
 }
 local options = {
     prefix = "<leader>"

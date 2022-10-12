@@ -10,7 +10,7 @@ local packer_startup = require('packer').startup(function()
     -- nvim treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
-        config = function ()
+        config = function()
             require("configs.nvim-treesitter-config")
         end,
     }
@@ -26,9 +26,9 @@ local packer_startup = require('packer').startup(function()
         config = function() require("nvim-autopairs").setup {} end
     }
 
-    use {'tree-sitter/tree-sitter-html'}
+    use { 'tree-sitter/tree-sitter-html' }
 
-    use {'virchau13/tree-sitter-astro'}
+    use { 'virchau13/tree-sitter-astro' }
 
     ------------------------------------------
 
@@ -40,12 +40,12 @@ local packer_startup = require('packer').startup(function()
     use 'williamboman/mason-lspconfig.nvim'
 
     -- nvim-cmp complete pack,
-    -- this would help ompletion sources 
-    use {'hrsh7th/cmp-nvim-lua'}
-    use {'hrsh7th/cmp-nvim-lsp-signature-help'}
+    -- this would help ompletion sources
+    use { 'hrsh7th/cmp-nvim-lua' }
+    use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
     use { 'hrsh7th/cmp-buffer' }
     use { 'hrsh7th/cmp-path' }
-    use { 'hrsh7th/cmp-cmdline' } -- 
+    use { 'hrsh7th/cmp-cmdline' } --
 
     -- For nvim-cmp - vssnip companion pack
     use { 'hrsh7th/cmp-vsnip' }
@@ -87,6 +87,19 @@ local packer_startup = require('packer').startup(function()
         'simrat39/rust-tools.nvim',
         config = function()
             require('configs.rust-tools-config')
+        end
+    }
+
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            local status, gitsigns = pcall(require, "gitsigns")
+            if not status then
+                print("gitsigns.nvim plugin is not installed")
+                return
+            end
+
+            gitsigns.setup({})
         end
     }
 
@@ -155,14 +168,14 @@ local packer_startup = require('packer').startup(function()
     -- barbar -- for top buffer file bar with icons
     use {
         'romgrk/barbar.nvim',
-        requires = {'kyazdani42/nvim-web-devicons'}
+        requires = { 'kyazdani42/nvim-web-devicons' }
     }
 
     -- nvim colorschemes using tjdevries gruvbuddy (using colorbuddy)
     -- use 'tjdevries/colorbuddy.vim'
     -- use 'tjdevries/gruvbuddy.nvim'
 
-    use {'folke/tokyonight.nvim',
+    use { 'folke/tokyonight.nvim',
         config = function()
             local tokyo_status, _ = pcall(require, "tokyonight")
             if not tokyo_status then
@@ -177,7 +190,7 @@ local packer_startup = require('packer').startup(function()
     -- lualine status bar
     use {
         'nvim-lualine/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function()
             require("configs.lualine-config")
         end,
