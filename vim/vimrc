@@ -1,29 +1,43 @@
 vim9script
 
+g:mapleader = ","
 inoremap kj <Esc>
-set number
-set relativenumber
-
-set cursorline
-hi Cursorline cterm=NONE ctermbg=darkgrey
-# set cursorcolumn
-# set termguicolors
-
-# for changing tab to tabspace and change existing
-# tab to space
-retab
-
-set completeopt=menu,menuone,noselect
+nnoremap <Leader>v <C-v>
 
 # set timeout length
 set timeoutlen=200
+
+set number
+set relativenumber
+
+set mouse=a
+set cursorline
+set hlsearch # highlight search
+highlight Cursorline cterm=NONE ctermbg=darkgrey
+highlight Visual cterm=reverse ctermbg=NONE
+
+# set terminal colors
+set t_Co=256
+set background=dark
+set termguicolors
+
+# for changing tab to tabspace and change existing
+# tab to space
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+retab
+
+# set completion settings
+set completeopt=menu,menuone,noselect
 
 # enable filetype detection together with plugin and indentation
 filetype plugin indent on
 
 # for showing syntax
 syntax on
-# for showing visual in vim
-highlight Visual cterm=reverse ctermbg=NONE
+syntax enable
 
-set hlsearch
+:echo ("hello")
