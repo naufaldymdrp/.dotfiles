@@ -1,2 +1,29 @@
-set numbers
-set relativenumbers
+vim9script
+
+inoremap kj <Esc>
+set number
+set relativenumber
+
+set cursorline
+hi Cursorline cterm=NONE ctermbg=darkgrey
+# set cursorcolumn
+# set termguicolors
+
+# for changing tab to tabspace and change existing
+# tab to space
+retab
+
+set completeopt=menu,menuone,noselect
+
+# set timeout length
+set timeoutlen=200
+
+# enable filetype detection together with plugin and indentation
+filetype plugin indent on
+
+# for showing syntax
+syntax on
+# for showing visual in vim
+highlight Visual cterm=reverse ctermbg=NONE
+
+set hlsearch
