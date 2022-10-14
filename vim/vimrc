@@ -17,18 +17,21 @@ highlight Cursorline cterm=NONE ctermbg=darkgrey
 highlight Visual cterm=reverse ctermbg=NONE
 
 # set terminal colors
-set t_Co=256
+set t_Co=256 # important for correct terminal colors
 set background=dark
-set termguicolors
+set termguicolors # set gui color for supported terminal
 
-# for changing tab to tabspace and change existing
-# tab to space
+# for changing tab to tabspace and change existing tab to space
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
 retab
+
+# show whitespace symbols
+set listchars=tab:\ \ ,nbsp:·
+set list
 
 # set completion settings
 set completeopt=menu,menuone,noselect
@@ -40,4 +43,16 @@ filetype plugin indent on
 syntax on
 syntax enable
 
-:echo ("hello")
+# for statusline
+set laststatus=2                # to always show statusline
+set statusline=\ %f\ \|           # shows filename in statusline
+set statusline+=\ FileType\:    # label
+set statusline+=\ %y\ \|        # filename
+set statusline+=%=
+set statusline+=\|\ [\ Line:\ %l,\ %L\ ]\ \| # current line
+set statusline+=\ (\ %l,\ %c\ )\ \|
+
+set ruler
+set rulerformat=%l,%v
+
+var baw = "\|hello"
