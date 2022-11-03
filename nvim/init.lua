@@ -5,6 +5,7 @@
 local g = vim.g -- global variable
 local set = vim.o -- global options
 
+
 -- set leader key to "," key
 -- let mapleader=","
 g.mapleader = ","

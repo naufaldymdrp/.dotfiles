@@ -16,12 +16,15 @@ set hlsearch # highlight search
 highlight Cursorline cterm=NONE ctermbg=darkgrey
 highlight Visual cterm=reverse ctermbg=NONE
 
-# set terminal colors
-set t_Co=256 # important for correct terminal colors
+# --- correct terminal colors in terminal
+set t_Co=256                # correct terminal color (1)
+# set term=screen-256color    # correct terminal color (2)
 set background=dark
 set termguicolors # set gui color for supported terminal
 
-# for changing tab to tabspace and change existing tab to space
+#  -------------------------------------------------------------------
+#  ------------ Change Tab to Tab Space ------------------------------
+#  -------------------------------------------------------------------
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -29,30 +32,49 @@ set expandtab
 set smarttab
 retab
 
-# show whitespace symbols
-set listchars=tab:\ \ ,nbsp:·
-set list
+#  -------------------------------------------------------------------
+
+set path+=** # To include all subfolder from root directory
+set wildmenu # Display all matching file when 'Tab' is pressed
 
 # set completion settings
 set completeopt=menu,menuone,noselect
 
-# enable filetype detection together with plugin and indentation
 filetype plugin indent on
-
-# for showing syntax
-syntax on
 syntax enable
+syntax on
 
-# for statusline
-set laststatus=2                # to always show statusline
-set statusline=\ %f\ \|           # shows filename in statusline
-set statusline+=\ FileType\:    # label
-set statusline+=\ %y\ \|        # filename
-set statusline+=%=
-set statusline+=\|\ [\ Line:\ %l,\ %L\ ]\ \| # current line
-set statusline+=\ (\ %l,\ %c\ )\ \|
+# Tabline configuration
+set showtabline=2
 
-set ruler
-set rulerformat=%l,%v
+# --------------------------------------------------------------------
+# ---------------- StatusLine Configuration --------------------------
+# --------------------------------------------------------------------
+#  Note : statusline colors follows colorscheme
 
-var baw = "\|hello"
+def g:CheckGitBranch(): string
+    var raw_branch = system("git rev-parse --abbrev-ref HEAD 2> /dev/null | tr -d '\n'")
+    var result = raw_branch
+
+    return result
+enddef
+
+set laststatus=2                        # to always show statusline
+set statusline=                         # clears statusline
+set statusline+=%#PmenuSel#
+set statusline+=\ %{g:CheckGitBranch()}\
+set statusline+=%#LineNr#
+set statusline+=\ %f\                   # filename
+set statusline+=\ %y\                 # filetype
+set statusline+=%m\ 
+set statusline+=%=                      # moves to right side
+set statusline+=%#CursorColumn#
+set statusline+=\ [Line:\ %l,%c/%L]\  # current line
+
+# --------------------------------------------------------------------
+
+
+# --------------------------------------------------------------------
+iabbrev @@ naufaldygood@outlook.com
+iabbrev cpright Copyright 2022 Naufaldy Rooswandy. All rights reserved.
+iabbrev vimcomment # --------------------------------------------------------------------
