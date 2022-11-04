@@ -18,6 +18,7 @@ lspconfig.cmake.setup({})
 lspconfig.denols.setup({
     autostart = false
 })
+lspconfig.zls.setup({})
 
 
 

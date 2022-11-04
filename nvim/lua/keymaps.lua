@@ -17,6 +17,8 @@ keymap('t', '<Esc>', "<C-\\><C-n>", options)
 -- vimscript : nnoremap <leader>v <C-v>
 keymap('n', '<leader>v', '<C-v>', options)
 
+keymap('t', 'kj', '<Esc>', options)
+
 -- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 -- -----------------------------------------------------
