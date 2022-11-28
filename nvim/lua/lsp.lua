@@ -19,6 +19,9 @@ lspconfig.denols.setup({
     autostart = false
 })
 lspconfig.zls.setup({})
+lspconfig.serve_d.setup({})
+lspconfig.nimls.setup({})
+lspconfig.gleam.setup({})
 
 
 
