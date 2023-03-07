@@ -217,6 +217,9 @@ local packer_startup = require('packer').startup(function()
         end
     }
 
+    -- for pony lang
+    use { "dleonard0/pony-vim-syntax" }
+
     -------------------------------------------
 
 end)
