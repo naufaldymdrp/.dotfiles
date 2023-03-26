@@ -22,7 +22,6 @@ lspconfig.zls.setup({})
 lspconfig.serve_d.setup({})
 lspconfig.nimls.setup({})
 lspconfig.gleam.setup({})
-lspconfig.ruff_lsp.setup({})
 
 
 
@@ -77,7 +76,7 @@ else
 end
 
 lspconfig.teal_ls.setup({})
-lspconfig.lua_ls.setup({
+lspconfig.sumneko_lua.setup({
     settings = {
             Lua = {
                 runtime = {
@@ -87,7 +86,7 @@ lspconfig.lua_ls.setup({
                 },
                 completion = { callSnippet = "Both" },
                 diagnostics = {
-                    globals = {'vim', },
+                    globals = {'vim', 'use'},
                 },
                 workspace = {
                     library = library,
@@ -146,4 +145,4 @@ lspconfig.lua_ls.setup({
 -- end)
 
 -- nvim_cmp config -- for autocompletion to turn on
--- require('configs.nvim-cmp-config')
+require('configs.nvim-cmp-config')

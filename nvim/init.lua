@@ -52,16 +52,22 @@ vim.cmd [[ filetype plugin indent on ]]
 -- for showing syntax
 vim.cmd [[ syntax on ]]
 
--- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-- initialize 'lazy.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- plugins configuration -- using Packer
--- lua require('plugins')
-require('plugins')
+-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+require("keymaps")
+local plugins = require("plugins")
 
--- keymaps.lua -- for keymaps related plugin
--- lua require('keymaps')
-require('keymaps')
-
--- configs.lua -- plugin related configuration
--- lua require('configs')
-require('lsp')
+require("lazy").setup(plugins)

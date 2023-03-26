@@ -1,0 +1,5 @@
+                foreach (var item in nodes2)
+                {
+                    Console.WriteLine(item.InnerHtml);
+                }
+
