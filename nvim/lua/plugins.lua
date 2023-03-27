@@ -22,6 +22,7 @@ local M = {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig",
             "glepnir/lspsaga.nvim",
             "hrsh7th/nvim-cmp"
         },

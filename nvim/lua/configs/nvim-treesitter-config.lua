@@ -18,7 +18,9 @@ nvim_treesitter_configs.setup{
         enable = true
     },
     ensure_installed = {
-        'tsx', 'json', 'html', 'css',
+        'tsx', 'json', 'html', 'css', 'lua', 'vim', 
+        'typescript', 'javascript', 'astro', 'svelte',
+        'c_sharp', 'c', 'cpp', 'rust', 'zig'
     }
 }
 
