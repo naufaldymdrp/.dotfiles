@@ -24,11 +24,19 @@ local M = {
             "williamboman/mason-lspconfig.nvim",
             "neovim/nvim-lspconfig",
             "glepnir/lspsaga.nvim",
-            "hrsh7th/nvim-cmp"
+            "hrsh7th/nvim-cmp",
+            "simrat39/rust-tools.nvim"
         },
         config = function()
             require("lsp")
         end,
+    },
+    {
+        "simrat39/rust-tools.nvim",
+        -- ft = "rust",
+        config = function ()
+            require("configs.rust-tools-config")
+        end
     },
     {
         "hrsh7th/nvim-cmp",
