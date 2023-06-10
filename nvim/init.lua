@@ -4,6 +4,7 @@
 
 local g = vim.g -- global variable
 local set = vim.o -- global options
+local fn = vim.fn -- built in functions
 
 
 -- set leader key to "," key
@@ -71,3 +72,7 @@ require("keymaps")
 local plugins = require("plugins")
 
 require("lazy").setup(plugins)
+
+if fn.has("win32") then
+    set.shell="pwsh"
+end
