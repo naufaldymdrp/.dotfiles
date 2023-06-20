@@ -6,7 +6,7 @@ require("mason-lspconfig").setup()
 -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local lspconfig = require("lspconfig")
-lspconfig.omnisharp.setup({})
+lspconfig.csharp_ls.setup({})
 
 -- Web Related Development
 lspconfig.tsserver.setup({})
