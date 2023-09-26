@@ -78,7 +78,7 @@ local packer_startup = require('packer').startup(function()
                 print("lspsaga.nvim is not installed");
                 return
             end
-            lspsaga.init_lsp_saga()
+            lspsaga.setup()
         end
     }
 
