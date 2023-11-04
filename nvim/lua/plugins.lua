@@ -11,36 +11,31 @@ local M = {
     },
     {
         "windwp/nvim-autopairs",
-        config = function()
-            require("nvim-autopairs").setup({})
-        end,
+        event = "InsertEnter",
+        opts = {},
     },
     {
         -- neovim lsp and its plugins placed here
         "neovim/nvim-lspconfig",
-        event = { "BufReadPre", "BufNewFile"},
+        event = { "BufReadPost", "BufNewFile"},
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "neovim/nvim-lspconfig",
             "glepnir/lspsaga.nvim",
             "hrsh7th/nvim-cmp",
-            "simrat39/rust-tools.nvim"
         },
-        config = function()
-            require("lsp")
-        end,
+        main = "lsp",
     },
     {
         "simrat39/rust-tools.nvim",
-        -- ft = "rust",
+        ft = "rust",
         config = function ()
             require("configs.rust-tools-config")
         end
     },
     {
         "hrsh7th/nvim-cmp",
-        event = { "BufReadPre", "BufNewFile"},
+        event = { "BufReadPost", "BufNewFile"},
         config = function()
             require("configs/nvim-cmp-config")
         end,
@@ -59,20 +54,11 @@ local M = {
     {
         -- lspsaga, new lspsaga completion/ui
         "glepnir/lspsaga.nvim",
-        event = { "BufReadPre", "BufNewFile"},
+        event = { "BufReadPost", "BufNewFile"},
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         },
-        config = function()
-            require("lspsaga").setup({})
-        end,
-    },
-    {
-        'jose-elias-alvarez/null-ls.nvim',
-        event = { "BufReadPre", "BufNewFile"},
-        config = function()
-            require("configs.null-ls-config")
-        end
+        main = "lspsaga",
     },
     {
         -- For a beautiful colorscheme
@@ -87,11 +73,10 @@ local M = {
         dependencies = {
             "folke/tokyonight.nvim"
         },
-        config = function()
-            require("lualine").setup({
-                options = { theme = "tokyonight" }
-            })
-        end,
+        main = "lualine",
+        opts = {
+            options = { theme = "tokyonight" }
+        },
     },
     {
         "nvim-telescope/telescope.nvim",
@@ -110,34 +95,28 @@ local M = {
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         },
-        config = function ()
-            require("nvim-tree").setup({})
-        end
+        main = "nvim-tree",
     },
     {
         "lewis6991/gitsigns.nvim",
-        event = { "BufReadPre", "BufNewFile"},
-        config = function()
-            require("gitsigns").setup({})
-        end,
+        event = { "BufReadPost", "BufNewFile"},
+        main = "gitsigns",
     },
     {
         'TimUntersberger/neogit',
+        cmd = "Neogit",
+        -- event = { "BufReadPost", "BufNewFile" },
         dependencies = { 'nvim-lua/plenary.nvim' },
-        config = function()
-            require("neogit").setup({})
-        end,
+        main = "neogit",
     },
     {
         "folke/todo-comments.nvim",
-        event = { "BufReadPre", "BufNewFile"},
-        config = function()
-            require("todo-comments").setup({})
-        end,
+        event = { "BufReadPost", "BufNewFile"},
+        main = "todo-comments",
     },
     {
         "folke/trouble.nvim",
-        event = { "BufReadPre", "BufNewFile"},
+        event = { "BufReadPost", "BufNewFile"},
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         },
@@ -153,17 +132,9 @@ local M = {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = { "BufReadPre", "BufNewFile"},
-        config = function()
-            vim.opt.list = true
-            vim.opt.listchars:append "space:⋅"
-            vim.opt.listchars:append "eol:↴"
-
-            require("indent_blankline").setup {
-                show_end_of_line = true,
-                space_char_blankline = " ",
-            }
-        end,
+        event = { "BufReadPost", "BufNewFile"},
+        main = "ibl",
+        opts = {},
     },
 }
 
