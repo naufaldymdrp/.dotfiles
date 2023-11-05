@@ -101,19 +101,22 @@ local M = {
     },
     {
         "nvim-tree/nvim-tree.lua",
+        keymap = "<leader>b",
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         },
         main = "nvim-tree",
+        config = true,
     },
     {
         "lewis6991/gitsigns.nvim",
         event = { "BufReadPost", "BufNewFile"},
         main = "gitsigns",
+        config = true,
     },
     {
         'TimUntersberger/neogit',
-        cmd = "Neogit",
+        -- cmd = "Neogit",
         -- event = { "BufReadPost", "BufNewFile" },
         dependencies = { 
             'nvim-lua/plenary.nvim',
@@ -125,6 +128,7 @@ local M = {
         "folke/todo-comments.nvim",
         event = { "BufReadPost", "BufNewFile"},
         main = "todo-comments",
+        config = true,
     },
     {
         "folke/trouble.nvim",
