@@ -8,11 +8,9 @@ end
 nvim_treesitter_configs.setup{
     highlight = {
         enable = true,
-        disable = {},
     },
     indent = {
         enable = true,
-        disable = {},
     },
     autotag = {
         enable = true

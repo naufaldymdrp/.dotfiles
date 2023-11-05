@@ -17,14 +17,16 @@ local M = {
     {
         -- neovim lsp and its plugins placed here
         "neovim/nvim-lspconfig",
-        event = { "BufReadPost", "BufNewFile"},
+        event = { "BufReadPre", "BufNewFile"},
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
             "glepnir/lspsaga.nvim",
             "hrsh7th/nvim-cmp",
         },
-        main = "lsp",
+        config = function()
+            require("lsp")
+        end
     },
     {
         "simrat39/rust-tools.nvim",
@@ -47,8 +49,13 @@ local M = {
             'hrsh7th/nvim-cmp',
 
             -- For vsnip users.
-            'hrsh7th/cmp-vsnip',
-            'hrsh7th/vim-vsnip'
+            -- 'hrsh7th/cmp-vsnip',
+            -- 'hrsh7th/vim-vsnip'
+
+            -- For Luasnip users
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+            "onsails/lspkind.nvim"
         },
     },
     {
@@ -59,6 +66,8 @@ local M = {
             "nvim-tree/nvim-web-devicons"
         },
         main = "lspsaga",
+        opts = {},
+        config = true
     },
     {
         -- For a beautiful colorscheme
@@ -106,8 +115,11 @@ local M = {
         'TimUntersberger/neogit',
         cmd = "Neogit",
         -- event = { "BufReadPost", "BufNewFile" },
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        main = "neogit",
+        dependencies = { 
+            'nvim-lua/plenary.nvim',
+            'sindrets/diffview.nvim',
+        },
+        config = true
     },
     {
         "folke/todo-comments.nvim",

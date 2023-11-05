@@ -6,7 +6,6 @@ local g = vim.g -- global variable
 local set = vim.o -- global options
 local fn = vim.fn -- built in functions
 
-
 -- set leader key to "," key
 -- let mapleader=","
 g.mapleader = ","
@@ -35,6 +34,7 @@ set.colorcolumn = '80'
 set.cursorline = true
 
 -- tabspace, smarttab, etc !!!
+set.nuw = 4
 set.expandtab = true
 set.tabstop = 4
 set.softtabstop = 4

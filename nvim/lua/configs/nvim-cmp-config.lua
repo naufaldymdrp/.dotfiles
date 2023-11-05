@@ -1,12 +1,21 @@
 -- Setup nvim-cmp.
-local cmp = require('cmp')
+local cmp_status, cmp = pcall(require, "cmp")
+if not cmp_status then
+    print("cmp plugin not installed")
+end
+
+local lspkind_status, lspkind = pcall(require, "lspkind")
+if not lspkind_status then
+    print("lspkind plugin not installed")
+end
 
 
 cmp.setup({
   -- Enable LSP snippets
   snippet = {
     expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+        -- vim.fn["vsnip#anonymous"](args.body) -- for vssnip users
+        require("luasnip").lsp_expand(args.body) -- for luasnip users
     end,
   },
   mapping = {
@@ -31,7 +40,7 @@ cmp.setup({
     { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
     { name = 'nvim_lua', keyword_length = 2},       -- complete neovim's Lua runtime API such vim.lsp.*
     { name = 'buffer', keyword_length = 2 },        -- source current buffer
-    { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
+    { name = 'luasnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
     { name = 'calc'},                               -- source for math calculation
   },
   window = {
@@ -39,17 +48,16 @@ cmp.setup({
       -- documentation = cmp.config.window.bordered(),
   },
   formatting = {
-      fields = {'menu', 'abbr', 'kind'},
-      format = function(entry, item)
-          local menu_icon ={
-              nvim_lsp = 'λ',
-              vsnip = '⋗',
-              buffer = 'Ω',
-              path = '🖫',
-          }
-          item.menu = menu_icon[entry.source.name]
-          return item
-      end,
+        format = lspkind.cmp_format({
+            mode = "symbol_text",
+            menu = ({
+                buffer = "[Buffer]",
+                nvim_lsp = "[LSP]",
+                luasnip = "[LuaSnip]",
+                nvim_lua = "[Lua]",
+                latex_symbols = "[Latex]"
+            })
+        })
   },
 })
 
