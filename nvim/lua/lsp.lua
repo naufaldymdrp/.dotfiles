@@ -6,13 +6,15 @@ require("mason-lspconfig").setup()
 -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local lspconfig = require("lspconfig")
-lspconfig.csharp_ls.setup({})
+-- lspconfig.csharp_ls.setup({})
+lspconfig.omnisharp.setup({});
 
 -- Web Related Development
 lspconfig.tsserver.setup({})
 lspconfig.svelte.setup({})
 lspconfig.astro.setup({})
 lspconfig.pyright.setup({})
+lspconfig.pyre.setup({});
 lspconfig.clangd.setup({})
 lspconfig.cmake.setup({})
 lspconfig.denols.setup({
@@ -23,6 +25,8 @@ lspconfig.serve_d.setup({})
 lspconfig.nimls.setup({})
 lspconfig.gleam.setup({})
 lspconfig.ruff_lsp.setup({})
+-- lspconfig.phan.setup({})
+lspconfig.intelephense.setup({})
 
 -- local on_attach = function (client)
 --     require("completion").on_attach(client)

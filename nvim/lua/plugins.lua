@@ -115,16 +115,6 @@ local M = {
         config = true,
     },
     {
-        'TimUntersberger/neogit',
-        -- cmd = "Neogit",
-        -- event = { "BufReadPost", "BufNewFile" },
-        dependencies = { 
-            'nvim-lua/plenary.nvim',
-            'sindrets/diffview.nvim',
-        },
-        config = true
-    },
-    {
         "folke/todo-comments.nvim",
         event = { "BufReadPost", "BufNewFile"},
         main = "todo-comments",
