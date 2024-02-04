@@ -94,6 +94,12 @@ local M = {
         },
     },
     {
+        "akinsho/toggleterm.nvim",
+        version = "*",
+        config = true,
+        keymap = "term"
+    },
+    {
         "romgrk/barbar.nvim",
         dependencies = {
             "nvim-tree/nvim-web-devicons"
