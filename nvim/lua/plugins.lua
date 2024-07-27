@@ -21,7 +21,7 @@ local M = {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "glepnir/lspsaga.nvim",
+            "nvimdev/lspsaga.nvim",
             "hrsh7th/nvim-cmp",
         },
         config = function()
@@ -60,14 +60,21 @@ local M = {
     },
     {
         -- lspsaga, new lspsaga completion/ui
-        "glepnir/lspsaga.nvim",
+        "nvimdev/lspsaga.nvim",
         event = { "BufReadPost", "BufNewFile"},
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         },
         main = "lspsaga",
         opts = {},
-        config = true
+        config = function()
+            require("lspsaga").setup({
+                lightbulb = {
+                    sign = false,
+                    debounce = 50
+                }
+            })
+        end
     },
     {
         -- For a beautiful colorscheme
