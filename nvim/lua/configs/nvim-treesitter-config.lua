@@ -8,15 +8,16 @@ end
 nvim_treesitter_configs.setup{
     highlight = {
         enable = true,
+        additional_vim_regex_highlighting = false,
     },
     indent = {
         enable = true,
     },
     autotag = {
-        enable = true
+        enable = true,
     },
     ensure_installed = {
-        'tsx', 'json', 'html', 'css', 'lua', 'vim', 
+        'tsx', 'json', 'html', 'css', 'lua', 'vim', 'vimdoc',
         'typescript', 'javascript', 'astro', 'svelte',
         'markdown', 'markdown_inline',
         'c_sharp', 'c', 'cpp', 'rust', 'zig'
