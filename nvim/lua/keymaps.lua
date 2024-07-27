@@ -7,7 +7,7 @@ local options = { noremap = true, silent = false }
 
 -- exitsnormal mode using kj keymap
 -- vimscript: inoremap kj <Esc>
-keymap('i', 'kj', '<Esc>', options)
+keymap('i', 'jj', '<Esc>', options)
 
 -- exit terminal mode
 -- vimscript: tnoremap <silent> <ESC> <C-\><C-n>
@@ -17,7 +17,7 @@ keymap('t', '<Esc>', "<C-\\><C-n>", options)
 -- vimscript : nnoremap <leader>v <C-v>
 keymap('n', '<leader>v', '<C-v>', options)
 
-keymap('t', 'kj', '<Esc>', options)
+keymap('t', 'jj', '<Esc>', options)
 
 -- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
