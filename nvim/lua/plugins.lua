@@ -14,19 +14,33 @@ local M = {
         event = "InsertEnter",
         opts = {},
     },
+    -- {
+    --     -- neovim lsp and its plugins placed here
+    --     "neovim/nvim-lspconfig",
+    --     event = { "BufReadPre", "BufNewFile"},
+    --     dependencies = {
+    --         "williamboman/mason.nvim",
+    --         "williamboman/mason-lspconfig.nvim",
+    --         "nvimdev/lspsaga.nvim",
+    --         "hrsh7th/nvim-cmp",
+    --     },
+    --     config = function()
+    --         require("lsp")
+    --     end
+    -- },
     {
-        -- neovim lsp and its plugins placed here
-        "neovim/nvim-lspconfig",
+        "mason-org/mason-lspconfig.nvim",
         event = { "BufReadPre", "BufNewFile"},
+        opts = {},
         dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-            "nvimdev/lspsaga.nvim",
-            "hrsh7th/nvim-cmp",
-        },
-        config = function()
-            require("lsp")
-        end
+                { "mason-org/mason.nvim", opts = {} },
+                "neovim/nvim-lspconfig",
+                "nvimdev/lspsaga.nvim",
+                "hrsh7th/nvim-cmp",
+            config = function()
+                require("lsp")
+            end
+        }
     },
     {
         "simrat39/rust-tools.nvim",

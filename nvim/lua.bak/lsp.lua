@@ -5,7 +5,7 @@ require("mason-lspconfig").setup()
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local lspconfig = require("lspconfig")
+local lspconfig = vim.lsp.config
 lspconfig.omnisharp.setup({})
 
 -- Web Related Development
@@ -75,7 +75,6 @@ else
     add("$XDG_DATA_HOME/nvim/site/pack/packer/start/*")
 end
 
-lspconfig.teal_ls.setup({})
 lspconfig.sumneko_lua.setup({
     settings = {
             Lua = {

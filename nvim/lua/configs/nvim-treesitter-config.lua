@@ -20,7 +20,7 @@ nvim_treesitter_configs.setup{
         'tsx', 'json', 'html', 'css', 'lua', 'vim', 'vimdoc',
         'typescript', 'javascript', 'astro', 'svelte',
         'markdown', 'markdown_inline',
-        'c_sharp', 'c', 'cpp', 'rust', 'zig'
+        'c_sharp', 'c', 'cpp', 'rust', 'zig', 'go', 'gomod', 'gowork', 'gosum'
     }
 }
 

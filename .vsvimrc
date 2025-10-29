@@ -1,0 +1,22 @@
+" Set the leader key to comma
+let mapleader = ','
+
+set number
+set relativenumber
+
+" Map 'jj' to Escape in Insert mode
+inoremap jj <Esc>
+
+" Map <leader>v to Visual Block mode
+nnoremap <leader>v <C-v>
+" Map <leader>e to open the Error List window (replace <leader> with your leader key if set)
+nmap <leader>e :vsc View.ErrorList<CR>
+
+nnoremap K :vsc Edit.QuickInfo<CR>
+
+" Map 'gi' to Visual Studio's Go To Implementation
+nnoremap gi :vsc Edit.GoToImplementation<CR>
+
+" set C-o and C-i to jump backward and forward respectively
+nnoremap <C-O> :vsc View.NavigateBackward<CR>
+nnoremap <C-I> :vsc View.NavigateForward<CR>

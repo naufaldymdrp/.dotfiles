@@ -73,8 +73,8 @@ local plugins = require("plugins")
 
 require("lazy").setup(plugins)
 
-if fn.has("linux") then
+if fn.has("linux") == 1 then
     set.shell = "bash"
-elseif fn.has("win32") then
+elseif fn.has("win32") == 1 then
     set.shell="pwsh"
 end
